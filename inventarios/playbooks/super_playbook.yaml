@@ -1,4 +1,5 @@
 # Este es mi fichero de playbook
+
 --- #crear un nuevo play
 # Contra qien opero
 - hosts: all # el guion es un item de la lista
@@ -73,13 +74,28 @@
       msg: "Me ejecuto normalmente 2"
      changed_when: True
      notify: mievento
-
+     
+    # Una tarea que explosiva
+   - name: Mi tarea EXPLOSIVA
+     shell:
+      cmd: umane
+     failed_when: explosiva.rc > 200
+     register: explosiva
+      
+    # Una tarea DETRAS de la explosion
+   - name: Mi tarea EXPLOSIVA resultado
+     debug:
+      msg: "{{ explosiva.stdout }}"
+     when: explosiva.rc == 0
+     
+#----------------------------------------------------------
+#----------------------------------------------------------
 
   handlers:
     # Mi tarea OPCIONAL 1
    - name: tarea opcional 1
      debug:
-      msg: "Me ejecuto opcionalmente 1"
+      cmd: "Me ejecuto opcionalmente 1"
      lista: mievento
      
     # Mi tarea OPCIONAL 2
