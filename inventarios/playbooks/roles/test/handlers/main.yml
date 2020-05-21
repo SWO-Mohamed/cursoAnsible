@@ -1,0 +1,7 @@
+---
+# HANDLERS file for test
+        
+- name: Tarea 1 asoaciada al evento mievento1
+  debug:
+    msg: "Soy la primera tarea del evento mievento1"
+  listen: mievento1
