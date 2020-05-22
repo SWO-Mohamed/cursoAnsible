@@ -1,0 +1,4 @@
+- name: Tarea postinstalacion 4 # inicar la configuracion de nginx
+  service:
+   name: nginx
+   state: started

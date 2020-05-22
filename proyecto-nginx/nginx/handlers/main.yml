@@ -1,0 +1,8 @@
+---
+# HANDLERS file for nginx
+
+- name: Tarea postinstalacion 3 # inicar la configuracion de nginx
+  service:
+   name: nginx
+   state: restarted
+  listen: nginx_reconfigurado

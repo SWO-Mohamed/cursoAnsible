@@ -1,0 +1,11 @@
+- name: Tarea Post-Instalacion 1 - Copiar configuracion de NGINX # Copiar la configuracion de nginx
+  template:
+   src: templates/minginx.conf
+   dest: /etc/nginx/conf.d/minginx.conf
+   mode: '0400'
+  notify: nginx_reconfigurado
+  
+- name: Tarea Post-Instalacion 2 - Clonar index del repositorio # Clonar la web
+  git:
+   repo: 'https://SWO-Mohamed:{{password_github}}@github.com/SWO-Mohamed/proyecto-nginx'
+   dest: '{{ nginx_web_path }}'

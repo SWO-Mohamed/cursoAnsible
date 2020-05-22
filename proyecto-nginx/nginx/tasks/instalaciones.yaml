@@ -1,0 +1,19 @@
+- name: Tarea Preinstalacion - Actualizar libreria # Actulizar el APT
+  apt:
+   update_cache: True
+   
+- name: Tarea Instalacion 1 - CURL # Instalar el curl con APT
+  apt:
+   name: curl
+   state: latest
+
+- name: Tarea Instalacion 2 - GIT # Instalar el nginx con APT
+  apt:
+    name: git
+    state: latest
+
+- name: Tarea Instalacion 3 - NGINX # Instalar el nginx con APT
+  apt:
+   name: nginx
+   state: latest
+  notify: nginx_instalado

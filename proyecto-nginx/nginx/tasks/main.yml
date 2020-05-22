@@ -1,0 +1,7 @@
+---
+# TASKS file for nginx
+
+- import_tasks: instalaciones.yaml
+- import_tasks: configuraciones.yaml
+- import_tasks: servicios.yaml
+- import_tasks: comprobaciones.yaml
